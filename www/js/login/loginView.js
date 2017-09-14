@@ -1,9 +1,9 @@
-define(['hbs!js/monthreport/monthreport'], function(viewTemplate) {
+define(['hbs!js/login/login'], function(viewTemplate) {
   var $ = Framework7.$;
 
   function render(params) {
-    $('.content-page').html(viewTemplate({ basicInfo: params.basicInfo}));
-    $('.tabbar').css('display', 'block');
+    $('.content-page').html(viewTemplate(params.cars));
+    $('.tabbar').css('display', 'none');
     bindEvents(params.bindings);
   }
 

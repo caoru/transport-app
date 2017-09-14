@@ -8,7 +8,7 @@ define(["app","js/contact/contactView", "js/contactModel"], function(app, Contac
 		handler: saveContact
 	}];
 
-	function init(query){
+	function init(basicInfo, query){
 		if (query && query.id) {
 			var contacts = JSON.parse(localStorage.getItem("f7Base"));
 			for (var i = 0; i< contacts.length; i++) {

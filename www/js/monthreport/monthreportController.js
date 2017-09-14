@@ -3,10 +3,11 @@ define(["app","js/monthreport/monthreportView", "js/transportModel"], function(a
   var bindings = [
   ];
 
-  function init(query) {
+  function init(basicInfo, query) {
     transport = new Transport();
 
     MonthreportView.render({
+      basicInfo: basicInfo,
       bindings: bindings
     });
   }

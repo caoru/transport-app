@@ -1,15 +1,19 @@
-define(function() {
-	var $ = Framework7.$;
+define(["js/basicInfoModel"], function(BasicInfo) {
+  var $ = Framework7.$;
 
-	/**
-	 * Init router, that handle page events
-	 */
-    function init() {
-		$(document).on('pageBeforeInit', function (e) {
-			var page = e.detail.page;
-			load(page.name, page.query);
-		});
-    }
+  /**
+   * Init router, that handle page events
+   */
+  function init() {
+    $(document).on('pageBeforeInit', function (e) {
+      var page = e.detail.page;
+
+      if (localStorage.getItem('auth-token') == null)
+        load('login');
+      else
+        load(page.name, page.query);
+    });
+  }
 
 	/**
 	 * Load (or reload) controller from js code (another controller) - call it's init function
@@ -19,7 +23,9 @@ define(function() {
 	function load(controllerName, query) {
     var url = controllerName + ".html";
 		require(['js/' + controllerName + '/'+ controllerName + 'Controller'], function(controller) {
-			controller.init(query);
+      basicInfo = new BasicInfo()
+
+			controller.init(basicInfo, query);
 
       $('.tab-link').each(function(index) {
         if ($(this).attr('href') == url)

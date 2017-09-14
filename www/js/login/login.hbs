@@ -1,0 +1,50 @@
+<div class="page-content login-screen-content">
+  <div class="login-screen-title">운송 관리</div>
+  <form>
+    <div class="list-block">
+      <ul>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">차량</div>
+            <div class="item-input">
+              <select name="license_number">
+                <option value="0">선택하세요</option>
+                {{#cars}}
+                <option value="{{license_number}}">{{license_number}}</option>
+                {{/cars}}
+              </select>
+            </div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">핸드폰 번호</div>
+            <div class="item-input">
+              <input type="text" name="cellular_phone" placeholder="Your username">
+            </div>
+          </div>
+        </li>
+        <li class="item-content">
+          <div class="item-inner">
+            <div class="item-title label">비밀 번호</div>
+            <div class="item-input">
+              <input type="password" name="password" placeholder="Your password">
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="list-block">
+      <ul>
+        <li><a href="#" class="item-link list-button">로그인 In</a></li>
+      </ul>
+      <!--
+      <div class="list-block-label">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p><a href="#" class="close-login-screen">Close Login Screen</a></p>
+      </div>
+      -->
+    </div>
+  </form>
+</div>
+

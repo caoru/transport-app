@@ -3,10 +3,11 @@ define(["app","js/dayreport/dayreportView", "js/transportModel"], function(app, 
   var bindings = [
   ];
 
-  function init(query) {
+  function init(basicInfo, query) {
     transport = new Transport();
 
     DayreportView.render({
+      basicInfo: basicInfo,
       bindings: bindings
     });
   }

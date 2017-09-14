@@ -12,6 +12,13 @@ define(["handlebars"], function (Handlebars) {
       // Get the template extension.
       var ext = (config.hbs && config.hbs.templateExtension ? config.hbs.templateExtension : templateExtension);
 
+      Handlebars.registerHelper('if_neq', function(a, b, opts) {
+        if(a == b) // Or === depending on your needs
+          return opts.inverse(this);
+        else
+          return opts.fn(this);
+      });
+
       // In browsers use the text-plugin to the load template. This way we
       // don't have to deal with ajax stuff
       parentRequire(["text!" + name + ext], function (raw) {

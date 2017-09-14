@@ -3,10 +3,11 @@ define(["app","js/load/loadView", "js/transportModel"], function(app, LoadView, 
   var bindings = [
   ];
 
-  function init(query) {
+  function init(basicInfo, query) {
     transport = new Transport();
 
     LoadView.render({
+      basicInfo: basicInfo,
       bindings: bindings
     });
   }

@@ -3,10 +3,11 @@ define(["app","js/unload/unloadView", "js/transportModel"], function(app, Unload
   var bindings = [
   ];
 
-  function init(query) {
+  function init(basicInfo, query) {
     transport = new Transport();
 
     UnloadView.render({
+      basicInfo: basicInfo,
       bindings: bindings
     });
   }
