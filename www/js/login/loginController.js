@@ -9,11 +9,9 @@ define(["app","js/login/loginView", "js/carModel"], function(app, LoginView, Car
   function init(basicInfo, query) {
     var cars = app.getData('cars');
 
-    console.log(cars);
-
     LoginView.render({
       bindings: bindings,
-      cars: cars
+      cars: cars.cars
     });
   }
 

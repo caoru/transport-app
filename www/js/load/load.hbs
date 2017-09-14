@@ -1,6 +1,90 @@
 <div class="page-content">
   <div class="content-block">
-    Load Page
+
+    <div class="row">
+      <div class="col-45">
+        <p class="buttons-row">
+          <a href="#" class="button button-big button-fill button-raised color-orange ripple-green">최근 배송 가져오기</a>
+        </p>
+      </div>
+      <div class="col-55">
+        <div class="card card-load">
+          <div class="card-content">
+            <div class="card-content-inner card-content-inner-load">
+              <div class="row">
+                <div class="col-30">
+                  <span>차량:</span>
+                </div>
+                <div class="col-70">
+                  <span>{{basicInfo.car.license_number}}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-30">
+                  <span>기사:</span>
+                </div>
+                <div class="col-70">
+                  <span>{{basicInfo.user.name}}</span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
   </div>
+  <!-- /.content-block -->
+
+  <form>
+  <div class="list-block">
+    <ul>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">품목</div>
+          <div class="item-after">
+            <select name="transport-item">
+              <option value="0">선택하세요</option>
+              {{#items}}
+              <option value="{{id}}">{{name}}</option>
+              {{/items}}
+            </select>
+          </div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">상차지</div>
+          <div class="item-after">
+            <select name="transport-bay">
+              <option value="0">선택하세요</option>
+              {{#bays}}
+              <option value="{{id}}">{{name}}</option>
+              {{/bays}}
+            </select>
+          </div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">발주사</div>
+          <div class="item-after">
+            <input type="text" placeholder="선택해주세요" readonly id="transport-company" class="transport-company">
+          </div>
+        </div>
+      </li>
+      <li class="item-content">
+        <div class="item-inner">
+          <div class="item-title">메모</div>
+          <div class="item-after">i
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- /.list-block -->
+  </form>
+
 </div>
+<!-- /.page-content -->
 

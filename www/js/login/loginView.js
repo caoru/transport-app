@@ -2,7 +2,9 @@ define(['hbs!js/login/login'], function(viewTemplate) {
   var $ = Framework7.$;
 
   function render(params) {
-    $('.content-page').html(viewTemplate(params.cars));
+    $('.content-page').html(viewTemplate({
+      cars: params.cars
+    }));
     $('.tabbar').css('display', 'none');
     bindEvents(params.bindings);
   }

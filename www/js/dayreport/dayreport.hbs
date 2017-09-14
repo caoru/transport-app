@@ -4,8 +4,34 @@
   <div class="card">
     <div class="card-content">
       <div class="card-content-inner">
-        <p>차량: {{basicInfo.car.license_number}} 기사: {{basicInfo.user.name}}</p>
-        <p>소속: {{basicInfo.user.company.name}} 용량: {{basicInfo.car.size}}</p>
+        <div class="row">
+          <div class="col-20">
+            <span>차량:</span>
+          </div>
+          <div class="col-30">
+            <span>{{basicInfo.car.license_number}}</span>
+          </div>
+          <div class="col-20">
+            <span>기사:</span>
+          </div>
+          <div class="col-30">
+            <span>{{basicInfo.user.name}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-20">
+            <span>용량:</span>
+          </div>
+          <div class="col-30">
+            <span>{{basicInfo.car.size}}</span>
+          </div>
+          <div class="col-20">
+            <span>소속:</span>
+          </div>
+          <div class="col-30">
+            <span>{{basicInfo.user.company.name}}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
