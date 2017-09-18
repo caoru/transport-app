@@ -35,11 +35,17 @@ define('app', ['js/router'], function(Router) {
         'Authorization' : localStorage.getItem('auth-token')
       },
       async: false,
-      success: function(data, textStatus, xhr) {
+        console.log(textStatus);
         if (xhr.status == 200) {
           result = data;
         }
+      },
+        console.log(xhr.status);
+        if (xhr.status == 500) {
+          Router.load('login');
+        }
       }
+
     });
 
     return result;
