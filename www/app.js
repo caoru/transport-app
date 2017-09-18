@@ -16,7 +16,8 @@ define('app', ['js/router'], function(Router) {
   var f7 = new Framework7({
     cache: false, /* disable caching */
     modalTitle: '운송',
-    animateNavBackIcon: true
+    animateNavBackIcon: true,
+    smartSelectOpenIn:'picker'
   });
   
   var mainView = f7.addView('.view-main', {

@@ -51,3 +51,8 @@ div[class*="col-"] {
 .card-content-inner-load {
   padding: 2px;
 }
+
+a.item-link.smart-select {
+  width: 100%;
+}
+

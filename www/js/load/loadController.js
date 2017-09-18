@@ -1,14 +1,19 @@
 define(["app","js/load/loadView", "js/transportModel"], function(app, LoadView, Transport) {
 
-  var pickerCompany;
-
   var bindings = [
     {
-		  element: '.transport-company',
+		  element: '.load-init',
 		  event: 'click',
-		  handler: openPickerCompany
-    }
+		  handler: initLoad
+    },
+    {
+		  element: '.load-submit',
+		  event: 'click',
+		  handler: submitLoad
+    },
   ];
+
+  var gBasicInfo;
 
   function init(basicInfo, query) {
     transport = new Transport();
@@ -16,35 +21,30 @@ define(["app","js/load/loadView", "js/transportModel"], function(app, LoadView, 
     var items = app.getData('items');
     var bays = app.getData('bays');
     var companies = app.getData('companies');
-
-    var pickerCompanyValues = [];
-
-    companies.companies.forEach(function(current) {
-      pickerCompanyValues.push(current.name);
-    });
+    gBasicInfo = basicInfo;
 
     LoadView.render({
       basicInfo: basicInfo,
       bindings: bindings,
       items: items.items,
       bays: bays.bays,
-      companies: companies.companies,
-      app: app
-    });
-
-    pickerCompany = app.f7.picker({
-      input: '#transport-company',
-      cols: [
-        {
-          textAlign: 'center',
-          values: pickerCompanyValues
-        }
-      ]
+      companies: companies.companies
     });
   }
 
-  function openPickerCompany() {
-    pickerCompany.open();
+  function initLoad() {
+    $('select[name=load-item]').parent('.smart-select').find('.smart-select-value').text('선택해주세요');;
+    $('select[name=load-bay]').parent('.smart-select').find('.smart-select-value').text('선택해주세요');;
+    $('select[name=load-company]').parent('.smart-select').find('.smart-select-value').text(gBasicInfo.user.company.name);
+  }
+
+  function submitLoad() {
+    var item = $('select[name=load-item]').parent('.smart-select').find('.smart-select-value').text();
+    var bay = $('select[name=load-bay]').parent('.smart-select').find('.smart-select-value').text();
+    var company = $('select[name=load-company]').parent('.smart-select').find('.smart-select-value').text();
+    console.log(item);
+    console.log(bay);
+    console.log(company);
   }
 
   return {

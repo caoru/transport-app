@@ -8,6 +8,8 @@ define(["js/basicInfoModel"], function(BasicInfo) {
     $(document).on('pageBeforeInit', function (e) {
       var page = e.detail.page;
 
+      if (page.name.startsWith("smart")) return;
+
       if (localStorage.getItem('auth-token') == null)
         load('login');
       else
